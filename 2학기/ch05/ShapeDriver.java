@@ -1,0 +1,50 @@
+abstract class Shape
+{
+	/*일반적인 모양을 모델링하는 Shape.java 프로그램을 작성하라.
+	1. 객체 변수로 모양의 이름을 갖는다.
+	2. 생성자함수에서 만들어진 모양 객체의 개수를 증가시켜
+	3. 모양객체의 수를 반환하는 메소드를 가지며
+	4. 이름을 반환하는 메소드를 가지며
+	5. 면적을 계산하는 추상 메소드를 가진다.*/
+
+	//1. 객체 변수로 모양의 이름을 갖는다.
+	public String name;
+	private static int count = 0;
+	public Shape(String name){
+		this.name = name;
+		//2. 생성자함수에서 만들어진 모양 객체의 개수를 증가시켜
+		count++;
+	}
+	//3. 모양객체의 수를 반환하는 메소드를 가지며
+	public static int getCount(){ //count가 static 변수이므로 메소드도 static으로
+		return count;
+	}
+	//4. 이름을 반환하는 메소드를 가지며
+	public String getName(){
+		return name;
+	}
+	//5. 면적을 계산하는 추상 메소드를 가진다.
+	public abstract double getArea(); //자식이 반드시 오버라이딩 하므로 private는 오면 X
+} 
+
+class Triangle extends Shape
+{
+	public double width, height;
+	public String name;
+	public Triangle(String name, double width, double height){
+		super(name);
+		this.width = width;
+		this.height = height;
+	}
+	public double getArea(){ //추상메소드 오버라이딩은 필수
+		return width * height * 0.5;
+	}
+}
+
+class ShapeDriver
+{
+	public static void main(String args[]){
+		Triangle t = new Triangle("삼각형", 10, 5);
+		System.out.println("삼각형의 넓이 : " + t.getArea());
+	}
+}

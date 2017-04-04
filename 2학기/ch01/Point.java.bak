@@ -1,0 +1,34 @@
+class Point
+{
+	double x, y;
+	//1. x, y 좌표를 입력 받아 점을 생성한다.
+	Point(double x, double y){ //생성자함수 : 객체를 생성하고 값을 초기화, 안하면 jvm이 만들어주긴 하지만 고급만들려면 직접!
+		this.x = x; //매개변수 x를 통해서 입력된 값을 생성된 객체의 멤버변수로 대입해라
+		this.y = y;
+	} //속성으로 x, y를 받아 점을 생성
+
+	/*void MoveP(double x, double y){
+		double mx = 3.0, my = 5.0;
+		System.out.println("이동 전 : (" + x + "), (" + y + ")");
+		x += mx;
+		y += my;
+		System.out.println("각각 " + mx + ", " + my + " 이동 후 : (" + x + "), (" + y + ")");
+	} 이코드는 x, y를 얻어 오라는 조건을 무시한 코드*/
+
+	/*double getX(){
+		return x;
+	} //2. x값을 얻어온다.
+
+	double getY(){
+		return y;
+	} //3. y값을 얻어온다.*/
+
+	public String toString(){ //Object 클래스 toString 메서드 재정의
+		return ("점의 좌표 : (" + this.x + ", " + this.y + ")");
+	}
+
+	void moveXY(double dx, double dy){
+		x += dx;
+		y += dy;
+	} //4. x, y값을 이동시킨다.
+}
